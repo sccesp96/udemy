@@ -1,0 +1,177 @@
+//--------------
+//PATRON DE COLORES
+//--------------
+$texto:#111111;
+$principal:#12AFAF;
+$secundario:#009500;
+//-------------------
+html {
+    font-size: 15px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: $texto;
+}
+
+.bienvenidos {
+    background: url(../images/fondo-encabezado.jpg) center top;
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+    // lo hago flex, para bajar el boton de la flecha hasta el final de la pagina
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado {
+    background: $texto;
+    color: #fff;
+    padding: .5rem 0;
+}
+
+.encabezado .container {
+    display: flex;
+    align-items: center;
+    //Pongo el flex-wrap:wrap pero creo que por defecto la clase b4 .container ya lo pone en wrap
+    flex-wrap: wrap;
+}
+
+.encabezado .logo img {
+    width: 150px;
+    height: auto;
+}
+
+// Estilos para botones buscar y menu
+.boton-buscar,
+.boton-menu {
+    border: 0;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0.5rem;
+    background: transparent;
+    color: #fff;
+}
+
+.boton-buscar:focus,
+.boton-menu:focus {
+    // Es para quitar que cuando se seleccionan por defecto sale remarcado
+    outline: 0;
+}
+
+.boton-buscar {
+    margin-left: auto;
+    margin-right: .8rem;
+}
+
+// Estilos bloque buscar
+#bloque-buscar {
+    flex: 1 1 100%;
+}
+
+.contenedor-bloque-buscar {
+    display: flex;
+    height: 3rem;
+    margin: 1rem 0;
+}
+
+.contenedor-bloque-buscar input[type="text"] {
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    padding: 1rem;
+    flex: 3 1 auto;
+}
+
+.contenedor-bloque-buscar input[type="submit"] {
+    flex: 1 1 auto;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    background: $principal;
+    color: #fff;
+}
+
+#menu-principal {
+    flex: 1 1 100%;
+}
+
+#menu-principal ul {
+    padding: 0;
+    list-style: none;
+    margin: 1rem 0 0 0;
+}
+
+#menu-principal li a {
+    display: block;
+    padding: .8rem 0;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border-top: 1px solid lightgray;
+    text-decoration: none;
+}
+
+#menu-principal li a:hover,
+#menu-principal li.active a {
+    color: $principal;
+}
+
+.texto-encabezado {
+    //con esto hago que ocupe 3 partes del espacio libre 
+    //y el div de la flecha ocupará solo 1 asi queda bien
+    flex: 3 1 auto;
+    display: flex;
+    align-items: center;
+}
+
+.texto-encabezado .display-4 {
+    margin-top: 3.5rem;
+}
+
+.btn-primary {
+    margin-top: 1rem;
+    color: #fff;
+    background-color: $principal;
+    border-color: transparent;
+    transition: all .5s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:active:hover,
+.btn-primary:focus {
+    border-color: transparent;
+    background-color: $secundario;
+}
+
+.flecha-bajar {
+    flex: 1 1 auto;
+}
+
+.flecha-bajar a i {
+    display: inline-block;
+    color: #fff;
+    font-size: 4rem;
+    // nombre de animacion duracion aceleracion repeticion
+    animation: flecha-animada 2s ease-in-out infinite;
+}
+
+// Para crear animaciones
+@keyframes flecha-animada {
+    // Empieza con el eje y en 0
+    from {
+        transform: translateY(0);
+    }
+    // al 50% de la animacion el eje y será 6px
+    50% {
+        transform: translateY(6px);
+    }
+    // al final de la animacion el eje y vuelve a ser 0
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 380px) {
+    html {
+        position: absolute;
+    }
+}

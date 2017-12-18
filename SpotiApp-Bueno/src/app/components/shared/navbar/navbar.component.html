@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light barra-nav">
+
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/banner-ico.png" width="30" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+
+
+    <!-- Just an image -->
+
+
+    <div class="collapse navbar-collapse ml-0 ml-md-5" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <!-- El routerLinkActive añade esa clase cuando esa pagina del router esta activa -->
+
+            <li class="nav-item pl-0 pl-md-3">
+                <a class="nav-link" [routerLink]="['home']" routerLinkActive="pagina-activa">Home </a>
+            </li>
+            <li class="nav-item pl-0 pl-md-3">
+                <a class="nav-link" [routerLink]="['search']" routerLinkActive="pagina-activa">Buscar</a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>

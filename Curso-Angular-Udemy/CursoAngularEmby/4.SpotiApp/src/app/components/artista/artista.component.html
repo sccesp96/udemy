@@ -1,0 +1,99 @@
+<!--El ngif artista lo hago para controlar que exista el artista y que no pete la aplicacion si no existe, aunque en principio deberia funcionar igualmente-->
+<div class="container animated fadeIn fast" *ngIf="artista">
+    <div class="row" style="margin-top:2%;">
+        <div class="col-md-3">
+            <!--utilizo el pipe que devuelve la posicion 1 del array de fotos-->
+            <img [src]="artista.images | sinfoto" class="img-fluid img-thumbnail" alt="">
+        </div>
+        <div class="col-md-9 text-center">
+            <h3>{{artista.name}}
+                <!--<small>-Popularidad:{{artista.popularity}}%</small>-->
+            </h3>
+            <hr>
+            <a [routerLink]="['/search']" class="btn btn-outline-success">Regresar</a>
+            <a [href]="artista.external_urls?.spotify" class="btn btn-outline-danger">Abrir en spotify</a>
+
+            <!--<button type="button" (click)="returnSearch()" name="" id="" class="btn btn-link btn-lg btn-block">Regresar con boton</button>-->
+
+
+
+        </div>
+    </div>
+
+    <!--Controlo que existan las canciones con un ngIf-->
+    <div class="row" style="margin-top:2%;" *ngIf="canciones">
+        <div class="col-md-12">
+            <table class="table table-inverse">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Foto</th>
+                        <th>Canción</th>
+                        <th>Popularidad</th>
+                        <th>Preview</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cancion of canciones; let i = index;">
+                        <td class="table-item">{{i+1}}</td>
+                        <td class="table-item">
+                            <img [src]="cancion.album.images | sinfoto" class="img-fluid img-tdumbnail img-pe">
+                        </td>
+                        <td class="table-item">{{cancion.name}}</td>
+                        <td class="table-item table-item2">{{cancion.popularity}}%</td>
+
+                        <td class="table-item">
+                            <!--Preview de 30 sec-->
+                            <audio controls>
+                                <source [src]="cancion.preview_url" >
+                            </audio>
+
+                            <!--Así da un error porque angular detecta como no seguro coger un url de terceros-->
+                            <!--<iframe [src]="https://open.spotify.com/embed?uri={{pista.uri}}" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>-->
+
+                            <!--Para que lo detecte como seguro utilizo el pipe domSeguro que devuelve el valor ya seguro
+                            Le paso 2 parámetros el value: que seriia pista.uri  y el segundo parametro el url que seria
+                            https://open.spotify.com/embed?uri=-->
+                            <!--Para poder utilizar esto tenía que ijnstalarme la aplicacion de spotify y poor eso he dejado el preview solo-->
+                            <!--<iframe [src]="cancion.uri | domSeguro:'https://open.spotify.com/embed?uri='" width="250" height="330" frameborder="0" allowtransparency="true"></iframe>-->
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<!--d-->
+<!--Controlo que existan las canciones con un ngIf-->
+<!--<div class="row" style="margin-top:2%;" *ngIf="canciones">
+        <div class="col-md-12">
+            <table class="table table-inverse">
+                <tbody *ngFor="let cancion of canciones">
+                    <tr>
+                        <th scope="row">
+                            <img [src]="cancion.album.images | sinfoto" class="img-fluid img-thumbnail img-pe">
+                        </th>
+                        <td style="vertical-align:middle;">
+                            <p>{{cancion.name}}</p>
+                            <audio controls>
+                                <source [src]="cancion.preview_url" >
+                            </audio>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>-->

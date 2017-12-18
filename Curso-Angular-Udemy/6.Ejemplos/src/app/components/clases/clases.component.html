@@ -1,0 +1,18 @@
+<button class="btn btn-primary" (click)="propiedades.danger=!propiedades.danger" [ngClass]="{'btn-danger': propiedades.danger,'btn-verd': !propiedades.danger}">DANGER
+</button>
+
+<br>
+<br>
+
+<h3>Proceso Asíncrono</h3>
+
+<button class="btn btn-primary" (click)="ejecutar()" [disabled]="loading">
+  <i class="fa" [ngClass]="{'fa-refresh fa-spin': loading , 'fa-save': !loading}"></i>
+  <span *ngIf="loading">Espere porfavor...</span>
+  <span *ngIf="!loading">Guardar</span>
+</button>
+
+
+<p appPrueba1>Prueba Directiva1</p>
+<!--Para pasarle parametros-->
+<!--<p [appPrueba1]="">Prueba Directiva1</p>-->

@@ -1,0 +1,64 @@
+/* MODAL LOGIN*/
+
+label {
+    color: gray;
+    font-weight: 500;
+}
+
+p {
+    color: black;
+}
+
+form div {
+    width: 90%;
+}
+
+small {
+    text-align: justify;
+}
+
+button {
+    cursor: pointer;
+}
+
+.invalido {
+    border: 1px solid rgb(253, 38, 38);
+}
+
+input[type=submit] {
+    cursor: pointer;
+    background-color: #f35415;
+    border: 0px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px 2px gray;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    transition: 1s;
+    background-color: #e44a13;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+
+/* CON EL BACKGROUND BLANCO */
+
+
+/* input[type=submit] {
+    cursor: pointer;
+    
+    background-color: #ffffff;
+    border: 1px solid #f35415;
+    color: #f35415;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    transition: 1s;
+    background-color: #f35415;
+    color: white;
+    box-shadow: 0px 0px 0px 0px;
+} */

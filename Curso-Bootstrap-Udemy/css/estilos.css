@@ -1,0 +1,130 @@
+html {
+  font-size: 15px; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #111111; }
+
+.bienvenidos {
+  background: url(../images/fondo-encabezado.jpg) center top;
+  background-size: cover;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column; }
+
+.encabezado {
+  background: #111111;
+  color: #fff;
+  padding: .5rem 0; }
+
+.encabezado .container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.encabezado .logo img {
+  width: 150px;
+  height: auto; }
+
+.boton-buscar,
+.boton-menu {
+  border: 0;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0.5rem;
+  background: transparent;
+  color: #fff; }
+
+.boton-buscar:focus,
+.boton-menu:focus {
+  outline: 0; }
+
+.boton-buscar {
+  margin-left: auto;
+  margin-right: .8rem; }
+
+#bloque-buscar {
+  flex: 1 1 100%; }
+
+.contenedor-bloque-buscar {
+  display: flex;
+  height: 3rem;
+  margin: 1rem 0; }
+
+.contenedor-bloque-buscar input[type="text"] {
+  border: 0;
+  border-radius: 5px 0 0 5px;
+  padding: 1rem;
+  flex: 3 1 auto; }
+
+.contenedor-bloque-buscar input[type="submit"] {
+  flex: 1 1 auto;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+  background: #12AFAF;
+  color: #fff; }
+
+#menu-principal {
+  flex: 1 1 100%; }
+
+#menu-principal ul {
+  padding: 0;
+  list-style: none;
+  margin: 1rem 0 0 0; }
+
+#menu-principal li a {
+  display: block;
+  padding: .8rem 0;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  border-top: 1px solid lightgray;
+  text-decoration: none; }
+
+#menu-principal li a:hover,
+#menu-principal li.active a {
+  color: #12AFAF; }
+
+.texto-encabezado {
+  flex: 3 1 auto;
+  display: flex;
+  align-items: center; }
+
+.texto-encabezado .display-4 {
+  margin-top: 3.5rem; }
+
+.btn-primary {
+  margin-top: 1rem;
+  color: #fff;
+  background-color: #12AFAF;
+  border-color: transparent;
+  transition: all .5s ease; }
+
+.btn-primary:hover,
+.btn-primary:active:hover,
+.btn-primary:focus {
+  border-color: transparent;
+  background-color: #009500; }
+
+.flecha-bajar {
+  flex: 1 1 auto; }
+
+.flecha-bajar a i {
+  display: inline-block;
+  color: #fff;
+  font-size: 4rem;
+  animation: flecha-animada 2s ease-in-out infinite; }
+
+@keyframes flecha-animada {
+  from {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(6px); }
+  to {
+    transform: translateY(0); } }
+@media screen and (max-width: 380px) {
+  html {
+    position: absolute; } }
+
+/*# sourceMappingURL=estilos.css.map */

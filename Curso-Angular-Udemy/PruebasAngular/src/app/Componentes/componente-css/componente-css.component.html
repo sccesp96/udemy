@@ -1,0 +1,22 @@
+<p [style.fontSize.px]="tamano">
+    componente-css works!
+</p>
+
+<button (click)="tamano=tamano+10">Aumentar letra</button>
+<button (click)="tamano=tamano-10">Reducir letra</button>
+
+<input type="text" [(ngModel)]="tamano" />
+
+<br>
+<br>
+<br>
+
+<button (click)="crearVariable(tamano)">Añadir</button>
+<button (click)="borrarVariable(tamano)">Braror</button>
+
+
+
+
+<h5 *ngFor="let item of array1">
+    {{item}}
+</h5>

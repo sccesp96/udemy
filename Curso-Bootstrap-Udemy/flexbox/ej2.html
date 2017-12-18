@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: green;
+        }
+        
+        section {
+            margin: 0 auto;
+            border: 1px solid lightskyblue;
+            background: lightgreen;
+            max-width: 800px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        img {
+            margin-right: 1rem;
+        }
+        /* lo añado ya que los p tienen margenes por defecto */
+        
+        p {
+            margin: 0;
+        }
+        
+        @media(max-width:400px) {
+            section {
+                flex-direction: column;
+            }
+            img {
+                flex: 0 1 400px;
+                margin-right: 0px;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+
+        <img src="../images/agencia.svg" alt="">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quaerat doloribus unde et illum, iste accusantium esse quae. Porro dolorem perferendis aliquid totam quisquam aut possimus. Aperiam, laboriosam. Odio, aliquid?</p>
+    </section>
+</body>
+
+</html>

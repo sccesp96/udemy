@@ -1,0 +1,13 @@
+    .carousel {
+        height: 90vh;
+    }
+    
+    .carousel-item {
+        height: 80vh;
+        background-position: center;
+    }
+    
+    .carousel-image2 {
+        background-position: right!important;
+        background-position-y: 1%!important;
+    }

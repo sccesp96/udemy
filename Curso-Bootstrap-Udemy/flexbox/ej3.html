@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* FlexPadre */
+        
+        .contenedor {
+            max-width: 80%;
+            /* El margin auto coge todo el espacio no ocupado por ningun elemento y lo pone de margen, si por ejemplo se pone margin rigth auto y margin left auto se repartirán el espacio disponible y por lo tanto el elemnto quedará centrado */
+            /* El primer parametro es top y bot y segundo left right*/
+            margin: 1rem auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        /* Flex hijo de contenedor y flex padre de lo que hay dentro del header */
+        
+        header {
+            background: lightgreen;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            align-items: center;
+            /* En este caso el flex grow da igual ya que sirve para repartirse el espacio sobrante entre los diferentes hijos y en la fila del header no habrá espacio sobrante ya que le pongo el flex basis al 100% para que ocupe todo el espacio de su eje principal que es el horizontal */
+            flex: 1 1 100%;
+            order: 0;
+        }
+        
+        header a {
+            flex: 0 1 250px;
+        }
+        
+        header a img {
+            width: 100%;
+        }
+        
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        
+        .enlace {
+            background: red;
+            margin: 0 0.3rem;
+            border-radius: 5px;
+            display: block;
+            padding: 0.6rem;
+            text-decoration: none;
+        }
+        /* Entre los laterales y el principal se tienen que repartir todo el espacio sobrante de su fila ya que los coloco juntos poniendo el flex basis a 0 , para controlar que proporcion de espacio sobrante se lleva cada uno utilizo el flex grow */
+        /* Flex hijo de contenedor */
+        
+        .principal {
+            background: lightcoral;
+            flex: 3 1 0px;
+            order: 2;
+        }
+        /* Flex hijo de contenedor */
+        
+        .lateral1 {
+            background: lightblue;
+            flex: 1 1 0px;
+            order: 1;
+        }
+        /* Flex hijo de contenedor */
+        
+        .lateral2 {
+            background: #7CB3C4;
+            flex: 1 1 0px;
+            order: 3;
+        }
+        /* Flex hijo de contenedor */
+        
+        footer {
+            background: darkgrey;
+            flex: 1 1 100%;
+            text-align: center;
+            order: 4
+        }
+        
+        @media (max-width:1000px) {
+            .contenedor {
+                max-width: 90%;
+            }
+        }
+        
+        @media (max-width:850px) {
+            .contenedor {
+                max-width: 90%;
+            }
+            header a {
+                flex: 0 1 100px;
+            }
+            header {
+                background: lightgreen;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 1rem;
+                padding-top: 1.6rem;
+                align-items: center;
+                /* En este caso el flex grow da igual ya que sirve para repartirse el espacio sobrante entre los diferentes hijos y en la fila del header no habrá espacio sobrante ya que le pongo el flex basis al 100% para que ocupe todo el espacio de su eje principal que es el horizontal */
+                flex: 1 1 100%;
+                order: 0;
+            }
+            .principal,
+            .lateral1,
+            .lateral2 {
+                flex: 0 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header role="banner">
+            <a href=""><img src="../images/logo.svg" alt=""></a>
+            <nav>
+                <ul>
+                    <li><a href="" class="enlace">Enlace 1</a></li>
+                    <li><a href="" class="enlace">Enlace 2</a></li>
+                    <li><a href="" class="enlace">Enlace 3</a></li>
+                    <li><a href="" class="enlace">Enlace 4</a></li>
+                    <li><a href="" class="enlace">Enlace 5</a></li>
+                </ul>
+            </nav>
+        </header>
+        <aside class="lateral1">
+            <h2>Lateral1</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia molestiae rem ex, soluta quas, ullam placeat cum recusandae porro ad repudiandae voluptate omnis corporis velit tempore voluptatem laborum a asperiores.</p>
+        </aside>
+        <aside class="lateral2">
+            <h2>Lateral1</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia molestiae rem ex, soluta quas, ullam placeat cum recusandae porro ad repudiandae voluptate omnis corporis velit tempore voluptatem laborum a asperiores.</p>
+        </aside>
+        <main class="principal">
+            <article>
+                <h2>Contenido principal</h2>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque illo pariatur suscipit accusamus hic illum aut labore itaque commodi asperiores ducimus est corporis tempore sequi qui, facere delectus, aliquam culpa.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias a facere corporis mollitia, cupiditate reiciendis libero error optio excepturi maiores, enim dolores ducimus commodi similique vel voluptatum harum iure, accusantium est soluta
+                    natus quos? Qui consequatur consectetur eligendi mollitia, error molestiae totam, ab odio nihil vitae blanditiis explicabo doloribus officiis quis amet est placeat reprehenderit alias ut. Quia tenetur iste eum, porro itaque excepturi
+                    amet architecto optio non necessitatibus dolorum quibusdam tempore quasi esse. Possimus illo voluptatum totam asperiores quod explicabo nostrum sunt eos eius blanditiis unde vel, quaerat alias iste commodi magni quas quibusdam velit
+                    nesciunt in dignissimos dolorum.</p>
+            </article>
+        </main>
+
+        <footer class="footer" role="contentinfo">
+            <p>Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

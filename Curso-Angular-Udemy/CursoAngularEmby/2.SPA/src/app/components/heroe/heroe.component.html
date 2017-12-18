@@ -1,0 +1,24 @@
+<!--los | son los pipes que sirven para mostrarlo en mayuscula, la fecha en un formato,etc.-->
+<h1>{{heroe.nombre | uppercase}} <small>{{heroe.aparicion | date:'y'}}</small></h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{heroe.img}}" class="img-fluid" alt="{{heroe.nombre}}">
+        <br><br>
+        <a [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block">Regresar</a>
+
+        <!--para hacerlo con el boton -->
+        <!--<button (click)="volverHeroes()" type="button" class="btn btn-outline-primary btn-block">Ver más...</button>-->
+
+
+    </div>
+    <div class="col-md-8">
+        <h3>{{heroe.nombre}}</h3>
+        <hr>
+        <p>{{heroe.bio}}</p>
+        <div>
+            <img *ngIf="heroe.casa=='DC'" class="imgLogo" src="assets/img/dc.png" alt="{{heroe.casa}}">
+            <img *ngIf="heroe.casa=='Marvel'" class="imgLogo" src="assets/img/marvel.png" alt="{{heroe.casa}}">
+        </div>
+    </div>
+</div>

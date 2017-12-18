@@ -1,0 +1,144 @@
+a {
+    font-size: 12px;
+}
+
+hr {
+    /* background-color: #12AFAF; */
+    background-color: #ddd;
+}
+
+.nombre-articulo {
+    font-size: 1rem;
+    color: #0066c0;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.imagen-articulo {
+    height: 200px!important;
+}
+
+.columna-derecha {
+    font-size: 0.9rem;
+}
+
+.boton-search {
+    cursor: pointer;
+    /* background-color: #ec9819; */
+}
+
+.boton-search:hover {
+    background-color: rgb(180, 180, 180);
+    transition: 0.5s;
+}
+
+.boton-search i {
+    color: rgb(90, 88, 88);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* /////////////// */
+
+.caracteristicas li {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.boton-caracteristicas {
+    border-radius: 10px;
+    border: 0px;
+    background-color: rgba(15, 141, 141, 0);
+    color: rgb(59, 59, 59);
+    font-size: 0.7rem;
+    cursor: pointer;
+    padding-left: 0px;
+    font-weight: bold;
+}
+
+.item {
+    border-bottom: 1px solid gray;
+}
+
+
+/* CAROUSEL popup */
+
+.carousel-indicators li {
+    background-color: rgb(173, 170, 170);
+}
+
+.carousel-indicators .active {
+    background-color: rgb(41, 41, 41);
+}
+
+span i {
+    color: black;
+    font-size: 3rem;
+}
+
+.carousel-item img {
+    min-height: 300px;
+}
+
+.boton-carousel {
+    font-size: 12px;
+    width: 7rem;
+    margin: 1.3rem 0px;
+    cursor: pointer;
+    background-color: rgb(255, 148, 42);
+    color: rgb(236, 236, 236);
+    border-color: #E67A00;
+    box-shadow: 2px 2px 2px 2px gray;
+    font-weight: bold;
+    /* margin-left: 3rem; */
+}
+
+.boton-carousel:hover {
+    background-color: #ec9819;
+    box-shadow: 0px 0px 0px 0px gray;
+    transition: 0.5s;
+}
+
+
+/* FONDO DEL CHECKOUT VER OFERTAS */
+
+.custom-control-input:checked~.custom-control-indicator {
+    color: #fff;
+    background-color: #E67A00;
+}
+
+
+/* ENLACES */
+
+.enlace-amazon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: 50%;
+    margin-top: 2.6rem;
+    cursor: pointer;
+    background-color: #E67A00;
+    color: rgb(236, 236, 236);
+    border-color: #E67A00;
+    font-weight: bold;
+    margin-left: 2rem;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+
+.enlace-amazon:hover {
+    background-color: #f35415;
+    box-shadow: 0px 0px 0px 0px gray;
+    transition: 0.5s;
+}
+
+@media(min-width:768px) {
+    .enlace-amazon {
+        width: 25%;
+    }
+    .imagen-articulo {
+        height: 260px!important;
+    }
+}

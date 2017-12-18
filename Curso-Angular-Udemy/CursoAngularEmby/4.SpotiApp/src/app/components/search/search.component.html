@@ -1,0 +1,31 @@
+<div class="container top-30">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="input_buscar">Buscador por artista</label>
+            <!--el ngModel vincula la variable busqueda del componente y cada vez que se modifica la modifica-->
+            <input [(ngModel)]="busqueda" (keyup)="buscarArtista()" class="form-control" type="text" name="input_buscar" placeholder="Buscar por artista...">
+            <hr>
+        </div>
+        <div class="col-md-9">
+            <!--<ul>
+                cojo el array de artistas del servicio que ya he importado anteriormente en el componente y creado su variable en el constructor de este componente, que es _spotyfyService  y lo recorro para crear una lista
+               <li *ngFor="let artista of _spotyfyService.artistas">
+                    {{artista.name}}
+                </li>
+            </ul>-->
+            <div class="row">
+                <div class="col-md-3 text-center puntero" [routerLink]="['/artista',artista.id]" *ngFor="let artista of _spotifyService.artistas">
+                    <!--El ? le dice a angular que si existe ponga el url ya que hay algunos artistas en spotify que no tienen imagenes-->
+                    <!--<img src={{artista.images[1]?.url}} class="img-fluid img-thumbnail">-->
+
+                    <!--El parametro que pasa el pipe es el valor del artista.images-->
+                    <img [src]="artista.images | sinfoto" class="img-fluid img-thumbnail">
+                    <p class="text-center">{{artista.name}}</p>
+                    <hr>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

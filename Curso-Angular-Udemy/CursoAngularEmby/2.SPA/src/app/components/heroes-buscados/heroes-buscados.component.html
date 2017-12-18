@@ -1,0 +1,27 @@
+<h1>Buscando: <small>{{buscando}}</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast" *ngIf="heroesBuscados.length==0">
+    <div class="col-md-12">
+        <div class="alert alert-danger" role="alert">
+            <strong>No existen resultados con el termino {{buscando}}</strong>
+        </div>
+    </div>
+</div>
+<div class="card-columns">
+    <div class="card animated fadeIn fast" *ngFor="let heroeBuscado of heroesBuscados;">
+        <!--es lo mismo src="{{heroe.img}}" que`[atributo]="heroe.img" -->
+        <!--<img class="card-img-top img-fluid" src="{{heroe.img}}" alt="{{heroe.nombre}}">-->
+        <img class="card-img-top img-fluid" [src]="heroeBuscado.img" [alt]="heroeBuscado.nombre">
+        <div class="card-block">
+            <h4 class="card-title">{{heroeBuscado.nombre}}</h4>
+            <p class="card-text">{{heroeBuscado.bio}}</p>
+            <p class="card-text"><small class="text-muted">{{heroeBuscado.aparicion}}</small></p>
+        </div>
+        <!--Manera de hacerlo con una funcion y un boton-->
+        <!--Manera de hacerlo con un routerlink-->
+        <!--<a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">Ver más...</a>-->
+
+    </div>
+
+</div>

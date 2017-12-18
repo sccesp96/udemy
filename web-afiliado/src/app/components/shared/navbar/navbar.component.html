@@ -1,0 +1,72 @@
+<header class="encabezado navbar-fixed-top" role="banner" id="encabezado">
+    <!-- <div class="container">
+        <a href="index.html" class="logo">
+              <img src="images/logo.svg" alt="Logo del sitio"> 
+        </a>
+        <div class="collapse navbar-collapse ml-0 ml-md-5" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- El routerLinkActive añade esa clase cuando esa pagina del router esta activa -->
+
+    <!--   <li class="nav-item pl-0 pl-md-3">
+                    <a class="nav-link">Home </a>
+                </li>
+                <li class="nav-item pl-0 pl-md-3">
+                    <a class="nav-link">Buscar</a>
+                </li>
+
+            </ul> 
+
+        </div>
+        <button type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar2" aria-expanded="false">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+
+        <form action="#" id="bloque-buscar2" class="collapse">
+            <div class="contenedor-bloque-buscar2">
+                <!-- Con el keyUP -->
+    <!-- <input type="text" placeholder="Buscar..." [(ngModel)]="buscador" name="buscar" (keyup)="get_Objetos()"> -->
+    <!--
+                <input type="text" placeholder="Buscar..." name="buscar">
+
+                <input type="submit" value="Buscar" class="boton">
+            </div>
+        </form>
+
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light barra-nav justify-content-end">
+
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/banner-ico.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </button>
+
+
+        <!-- Just an image -->
+
+        <app-login></app-login>
+        <app-registro></app-registro>
+        <div class="collapse navbar-collapse ml-0 ml-md-5" id="navbarSupportedContent">
+            <ul class="navbar-nav m-0 mr-5 pr-3 w-100 d-flex justify-content-end">
+                <!-- El routerLinkActive añade esa clase cuando esa pagina del router esta activa -->
+
+                <li class="nav-item pl-0 pl-md-3">
+                    <a class="nav-link" [routerLink]="['home']" routerLinkActive="pagina-activa">Buscar </a>
+                </li>
+                <li class="nav-item pl-0 pl-md-3">
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal2" style="cursor:pointer;">Registrarse</a>
+                </li>
+                <li class="nav-item pl-0 pl-md-3">
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="cursor:pointer;">Login</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+</header>

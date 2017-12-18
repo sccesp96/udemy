@@ -1,0 +1,92 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <small id="emailHelp" class="form-text text-muted">Una vez registrado en la aplicación podrá seleccionar los productos de amazon que desee para que le llegue una notificación cuando tengan alguna oferta menor que el precio actual.</small>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" *ngIf="!usuario_registrado">
+
+                <!-- El novalidate es para que al hacer el submit no intente hacer la validacion que hace el html5 por defecto -->
+                <form class=" d-flex flex-column flex-wrap align-items-center" [formGroup]="formulario_registro" (ngSubmit)="registrarse();" novalidate="novalidate">
+                    <div class="form-group mt-2">
+                        <!-- El touched es una propiedad del objeto form que crea angular al darle 
+                          el [formGroup al formulario] y si todavia no se ha tocado el elemento el
+                          untouched estará en true -->
+                        <label for="email" [ngClass]="{'text-danger': formulario_registro.controls['email'].touched && !formulario_registro.controls['email'].valid}">Introduzca su email </label>
+
+                        <input type="email" class="form-control w-100" name="email" placeholder="Introduzca su email" formControlName="email" [ngClass]="{'invalido': formulario_registro.controls['email'].touched && !formulario_registro.controls['email'].valid}">
+                        <!-- Como le he puesto el required , si hay un error de required, muestro el campo de el campo es requerido
+                    El ? se pone para decir que el campo errors puede no existir y porlo tanto que no pete el programa si no existe-->
+
+                        <div *ngIf="formulario_registro.controls['email'].touched && formulario_registro.controls['email'].errors?.required" class="text-danger">
+                            Este campo no puede estar vacío
+                        </div>
+                        <div *ngIf="formulario_registro.controls['email'].errors?.pattern" class="text-danger">
+                            Tiene que tener un formato email
+                        </div>
+
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label for="password" [ngClass]="{'text-danger': formulario_registro.controls['password'].touched && !formulario_registro.controls['password'].valid}">Introduzca su contraseña </label>
+
+                        <input type="password" class="form-control w-100" name="password" placeholder="Introduzca su contraseña" formControlName="password" [ngClass]="{'invalido': formulario_registro.controls['password'].touched && !formulario_registro.controls['password'].valid}">
+                        <div *ngIf="formulario_registro.controls['password'].touched && formulario_registro.controls['password'].errors?.required" class="text-danger">
+                            Este campo no puede estar vacío
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label for="repetir_password" [ngClass]="{'text-danger': formulario_registro.controls['repetir_password'].touched && !formulario_registro.controls['repetir_password'].valid}">Repetir contraseña </label>
+
+                        <input type="password" class="form-control w-100" name="repetir_password" placeholder="Repetir contraseña" formControlName="repetir_password" (keyup)="comprobarPass()" [ngClass]="{'invalido': formulario_registro.controls['repetir_password'].touched && !formulario_registro.controls['repetir_password'].valid}">
+                        <div *ngIf="formulario_registro.controls['repetir_password'].touched && formulario_registro.controls['repetir_password'].errors?.required" class="text-danger">
+                            Este campo no puede estar vacío
+                        </div>
+                    </div>
+
+                    <div *ngIf="!pass_coindicen" class="text-danger">
+                        Las contraseñas no coinciden
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label" style="font-weight:400!important;">
+                              <input type="checkbox" class="form-check-input">
+                              Recordarme
+                      </label>
+                    </div>
+
+                    <input name="honeypot" formControlName="honeypot" style="display:none">
+
+                    <div class="text-center mt-4">
+                        <!-- Hago que el disabled tenga el valor del objeto formulario_registro , este valor será true si se cumplen todas las validaciones de sus campos -->
+                        <input type="submit" class="btn btn-primary w-50" value="Registrarse" [disabled]='formulario_registro.invalid' />
+
+                    </div>
+                </form>
+
+            </div>
+
+            <!--FIN ngIF -->
+
+
+            <div class="modal-body" *ngIf="usuario_registrado">
+                <p class="my-5 text-center text-success font-weight-bold ">Se ha registrado el usuario</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--////////////// -->
