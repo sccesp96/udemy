@@ -63,35 +63,73 @@ class Robot {
 
 }
 
+
+
+
+
+const lib = require('readline');
+
+var input_rows;
+var input_cols;
+var input_rowStart;
+var input_colStart;
+var input_direc;
+
+const interface1 = lib.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+interface1.question('Introduce rows', (res) => {
+
+    input_rows = res;
+
+
+    interface1.close();
+})
+
+
+
 var robot1 = new Robot();
 
-
-
 var cubes = [
-    ["R", "D", "R", "D", "D", "R"],
-    ["R", "D", "I", "D", "D", "R"],
-    ["R", "D", "D", "D", "D", "R"],
-    ["R", "D", "D", "D", "D", "R"],
-    ["R", "D", "D", "D", "R", "R"],
-    ["R", "D", "D", "D", "R", "R"],
-    ["R", "D", "D", "D", "R", "R"],
-    ["R", "D", "D", "D", "R", "R"],
-
-
+    ["I", "D", "R", "D", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["I", "D", "I", "D", "I", "R", "R", "D", "R", "D", "D", "R"],
+    ["R", "I", "D", "R", "X", "R", "R", "D", "R", "D", "D", "R"],
+    ["R", "I", "I", "R", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["I", "R", "R", "D", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "X", "D", "R", "D", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "X", "I", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "D", "D", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["R", "I", "I", "R", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["I", "R", "R", "D", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "X", "D", "R", "D", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "X", "I", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "D", "D", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["R", "I", "I", "R", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["I", "R", "R", "D", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "X", "D", "R", "D", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "X", "I", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "D", "D", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["R", "I", "I", "R", "D", "R", "R", "D", "R", "D", "D", "R"],
+    ["I", "R", "R", "D", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "X", "D", "R", "D", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "X", "I", "R", "X", "R", "D", "R", "D", "D", "R"],
+    ["R", "D", "D", "D", "D", "R", "R", "D", "R", "D", "D", "R"]
 ];
 
 function jugar(robot, tablero) {
 
-    var res = "El robot ha salido del tablero";
+    var res = "Sale";
 
-    var avances = 0;
+    var movimientos = 0;
 
     do {
         robot.girar(tablero[robot.getRow()][robot.getCol()]);
 
         robot.avanzar(robot.getDirec());
 
-        avances++;
+        movimientos++;
 
     }
     // Hago así la condicion del while porque si pongo directamente el typeof tablero[robot.getRow()][robot.getCol()] !== 'undefined')
@@ -100,7 +138,7 @@ function jugar(robot, tablero) {
     while (typeof tablero[robot.getRow()] !== 'undefined' &&
         typeof tablero[robot.getRow()][robot.getCol()] !== 'undefined' &&
         tablero[robot.getRow()][robot.getCol()] !== 'X' &&
-        avances < 50);
+        movimientos < 100);
 
     // Para que no de error al comprobar si tablero[robot.getRow()][robot.getCol()] === 'X' 
     // primero hago un if para comprobar si la fila no existe y si es asi hago que no llegue a hacer 
@@ -108,13 +146,14 @@ function jugar(robot, tablero) {
     if (typeof tablero[robot.getRow()] === 'undefined') {
 
     } else if (tablero[robot.getRow()][robot.getCol()] === 'X') {
-        res = "El robot ha caido en una trampa ";
+        res = "Explota";
     }
 
-    if (avances == 50) {
-        res = "El ha entrado en bucle y nunca saldrá ";
+    if (movimientos == 100) {
+        res = "No sale";
 
     }
+    console.log(movimientos);
     console.log(robot1.getPosition());
     return res;
     // return robot.getPosition();
@@ -122,11 +161,6 @@ function jugar(robot, tablero) {
 
 
 console.log(jugar(robot1, cubes));
-// imprimirArray();
-
-
-
-
 
 function imprimirArray() {
     for (var i = 0; i < cubes.length; i++) {
@@ -135,54 +169,4 @@ function imprimirArray() {
             console.log("cube[" + i + "][" + j + "] = " + cubes[i][j]);
         }
     }
-}
-
-
-// const lib = require('readline');
-
-// const interface1 = lib.createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// });
-
-
-
-
-// interface1.question('Como te llamas?', (res) => {
-
-//     // console.log(iniciar(16, 9));
-
-//     imprimirArray();
-
-
-//     interface1.close();
-// })
-
-
-
-
-
-function iniciar(columnas, filas) {
-
-    var posicion_inicial = Math.floor((Math.random() * (columnas * filas)) + 1);
-
-    var i = 0,
-        _size = columnas * filas,
-        output = '';
-    for (; i < _size; i++) {
-        // add a new line if we need two
-        if (i % columnas === 0) {
-            output = output + '\n';
-        } else if (i === posicion_inicial) {
-            output = output + '*'
-
-        } else {
-            output = output + 'R';
-
-        }
-
-    }
-    // append a new line at the end for proper formatting.
-    return output + '\n'
-
 }
