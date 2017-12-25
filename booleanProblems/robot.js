@@ -14,13 +14,13 @@ var rowActual_dibujarTablero = 0;
 var readline = require('readline'),
     rl = readline.createInterface(process.stdin, process.stdout);
 
-// rl.setPrompt('Size: ');
-// rl.prompt();
+
 
 rl.on('line', function(res) {
 
     // si es la primera linea que me entre aquí
     if (linea_actual == 0) {
+
         //cojo la primera linea de  datos que recibo por teclado y lo paso de string a array 
         var size = res.split(" ");
         // la primera posicion del array sera la fila y la segunda la col
@@ -78,10 +78,8 @@ rl.on('line', function(res) {
             }
         }
         imprimirArray();
-        // console.log(tablero[0][0]);
         process.exit(0);
     }
-    // sumo uno
     linea_actual++;
 
     // rl.prompt();
