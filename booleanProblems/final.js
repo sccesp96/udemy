@@ -126,7 +126,7 @@ function jugar(robot, tablero) {
 }
 
 
-
+var cantidad_casosPrueba = 0;
 var input_rows = 0;
 var input_cols = 0;
 var linea_actual = 0;
@@ -151,6 +151,14 @@ rl.on('line', function(res) {
         // la primera posicion del array sera la fila y la segunda la col
         input_rows = size[0];
         input_cols = size[1];
+        if (input_rows > 60) {
+            console.log("La cantidad de filas no puede ser >60 ")
+            process.exit(0);
+        }
+        if (input_cols > 60) {
+            console.log("La cantidad de columnas no puede ser >60 ")
+            process.exit(0);
+        }
         // las lineas maximas seran igual a las filas + 1 ya que necesitare que sea dinamica
         // para poder dibujar el tablero segun las filas que vaya a tener y el +1 es para la linea final
         // donde se introducirá la posicion y la direccion del robot 
@@ -165,6 +173,14 @@ rl.on('line', function(res) {
         // ej: RRXIR
         // esta cadena de string cojo cada caracter introducido y lo meto en el array tableroInput_filaActual
         var tableroInput_filaActual = res.split("");
+
+        // controlo que el array que se crea a partir de los caracteres que tiene la linea no sea superior
+        // a la cantidad de columnas que se ha indicado en la primera linea que tendrá
+        if (tableroInput_filaActual.length > input_cols) {
+            console.log("Error: Estas introduciendo más columnas de las que has indicado que tendrá el tablero");
+            process.exit(0);
+
+        }
 
         // cojo la fila de la matriz tablero definido arriba que coindice con la posicion del row que se introudce por teclado
         // ej: si la linea de dibujo el tablero es la primera , cogere la posicion tablero[0] de la matriz
