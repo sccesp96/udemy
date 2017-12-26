@@ -75,7 +75,7 @@ class Robot {
         }
     }
 
-    guardarPos(row, col) {
+    guardarPos(row, col, direc) {
         // var pos_completa = 3;
         this.posGuardadas.push(row);
     }
@@ -100,7 +100,7 @@ function jugar(robot, tablero) {
 
 
         robot.avanzar(robot.getDirec());
-        robot.guardarPos(robot.getRow, robot.getCol);
+        robot.guardarPos(robot.getRow(), robot.getCol(), robot.getDirec());
 
         movimientos++;
 
