@@ -5,11 +5,14 @@ class Robot {
         this.pos_col = 0;
         this.direc = 180;
         this.posGuardadas = [];
+        this.posDir = "";
     }
 
     getPosition() {
         return this.pos_row + " " + this.pos_col;
     }
+
+
 
     getCol() {
         return this.pos_col;
@@ -20,6 +23,10 @@ class Robot {
     }
 
     getDirec() {
+        // hago que si es 360 o -360 pase a 0 así nunca se saldra de los grados de una circunferencia
+        if (this.direc == 360 || this.direc == -360) {
+            this.direc = 0;
+        }
         return this.direc;
     }
 
@@ -28,8 +35,8 @@ class Robot {
         this.pos_col = col;
     }
 
-    setDirec(dir) {
-        this.direc = dir;
+    setDirec(entrada) {
+        this.direc = entrada;
     }
 
     girar(entrada) {
@@ -52,6 +59,7 @@ class Robot {
     }
 
     avanzar(direc) {
+
         switch (direc) {
             case 0:
             case 360:
@@ -75,10 +83,18 @@ class Robot {
         }
     }
 
-    guardarPos(row, col, direc) {
-        // var pos_completa = 3;
-        this.posGuardadas.push(row);
+    guardarPos(pos) {
+        for (var i = 0; i < this.posGuardadas.length; i++) {
+            // si el parametro coincide con algun valor que hay en el array posguardadas
+            // pongo la variable bucle en true
+            if (this.posGuardadas[i] === pos) {
+                robot_bucle = true;
+            }
+        }
+        this.posGuardadas.push(pos);
+
     }
+
 
 }
 
@@ -93,14 +109,16 @@ function jugar(robot, tablero) {
     do {
         robot.girar(tablero[robot.getRow()][robot.getCol()]);
 
-        // controlo que si la dirección llega a 360 o -360
-        if (robot.getDirec == 360 || robot.getDirec == -360) {
-            robot.setDirec(0);
-        }
-
-
         robot.avanzar(robot.getDirec());
-        robot.guardarPos(robot.getRow(), robot.getCol(), robot.getDirec());
+        // cojo los datos actuales del robot y los guardo como string en la variable pos
+        // que luego haré en el array de posiciones guardadas del robot y si coinciden y si esta variable
+        // coincide con alguna de las que hay guardadas en el array posicionesguardadas será que entra en bucle
+        var row = robot1.getRow();
+        var col = robot1.getCol();
+        var direc = robot1.getDirec();
+        var pos = "R:" + row.toString() + "C:" + col.toString() + "D:" + direc.toString();
+
+        robot.guardarPos(pos);
 
         movimientos++;
 
@@ -111,7 +129,7 @@ function jugar(robot, tablero) {
     while (typeof tablero[robot.getRow()] !== 'undefined' &&
         typeof tablero[robot.getRow()][robot.getCol()] !== 'undefined' &&
         tablero[robot.getRow()][robot.getCol()] !== 'X' &&
-        movimientos < 1000000);
+        robot_bucle == false);
 
     // Para que no de error al comprobar si tablero[robot.getRow()][robot.getCol()] === 'X' 
     // primero hago un if para comprobar si la fila no existe y si es asi hago que no llegue a hacer 
@@ -122,17 +140,17 @@ function jugar(robot, tablero) {
         res = "Explota";
     }
 
-    if (movimientos == 1000000) {
+    // si el robot ha entrado en bucle que diga no sale
+    if (robot_bucle == true) {
         res = "No sale";
-
     }
-    console.log("MOVIMIENTOS:  " + movimientos);
-    console.log("Posicion FINAL:  " + robot1.getPosition());
+    // console.log("Posicion FINAL:  " + robot1.getPosition());
+
+
     return res;
-    // return robot.getPosition();
 }
 
-
+var robot_bucle = false;
 var cantidad_casosPrueba = 0;
 var cantidad_casosPruebaInput = 0;
 var input_rows = 0;

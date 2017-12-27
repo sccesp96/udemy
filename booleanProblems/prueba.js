@@ -1,3 +1,5 @@
+var posDir_repetida = false;
+
 class Robot {
     // row columnas
     constructor() {
@@ -9,6 +11,10 @@ class Robot {
 
     getPosition() {
         return this.pos_row + " " + this.pos_col;
+    }
+    getPositionDireccion() {
+        this.posDir = this.pos_row.toString() + this.pos_col.toString() + this.getDirec.toString()
+        return this.posDir;
     }
 
     getCol() {
@@ -75,8 +81,17 @@ class Robot {
         }
     }
 
-    guardarPos(row, col, direc) {
-        this.posGuardadas.push(row);
+    guardarPos(pos) {
+
+
+        for (var i = 0; i < this.posGuardadas.length; i++) {
+            if (this.posGuardadas[i] == pos) {
+                console.log("Repetidaaaaaaaaa");
+                posDir_repetida = true;
+            }
+        }
+        this.posGuardadas.push(pos);
+
     }
 
 }
@@ -86,5 +101,7 @@ var robot1 = new Robot();
 var row = robot1.getRow();
 var col = robot1.getCol();
 var direc = robot1.getDirec();
+
+var pos = row.toString() + col.toString() + direc.toString();
 
 console.log(row.toString() + col.toString() + direc.toString());

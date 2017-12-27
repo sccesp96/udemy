@@ -1,9 +1,10 @@
 class Robot {
     // row columnas
-    constructor(pos_row = 0, pos_col = 0, direc = 180) {
+    constructor() {
         this.pos_row = 0;
         this.pos_col = 0;
         this.direc = 180;
+        this.posGuardadas = [];
     }
 
     getPosition() {
@@ -74,6 +75,11 @@ class Robot {
         }
     }
 
+    guardarPos(row, col, direc) {
+        // var pos_completa = 3;
+        this.posGuardadas.push(row);
+    }
+
 }
 
 var robot1 = new Robot();
@@ -94,6 +100,7 @@ function jugar(robot, tablero) {
 
 
         robot.avanzar(robot.getDirec());
+        robot.guardarPos(robot.getRow(), robot.getCol(), robot.getDirec());
 
         movimientos++;
 
@@ -126,6 +133,8 @@ function jugar(robot, tablero) {
 }
 
 
+var cantidad_casosPrueba = 0;
+var cantidad_casosPruebaInput = 0;
 var input_rows = 0;
 var input_cols = 0;
 var linea_actual = 0;
@@ -141,8 +150,12 @@ var readline = require('readline'),
 
 
 rl.on('line', function(res) {
-
     // si es la primera linea que me entre aquí
+    // if (linea_actual == 0) {
+    //     cantidad_casosPruebaInput = res.trim();
+    // }
+
+    // si es la segunda linea que me entre aquí
     if (linea_actual == 0) {
 
         //cojo la primera linea de  datos que recibo por teclado y lo paso de string a array 
@@ -255,10 +268,31 @@ rl.on('line', function(res) {
         console.log(jugar(robot1, tablero_input));
         process.exit(0);
 
+        // if (cantidad_casosPrueba === cantidad_casosPruebaInput) {
+        //     process.exit(0);
+        // } else {
+        //     cantidad_casosPrueba++;
+        // }
     }
     linea_actual++;
 
+    // rl.prompt();
 }).on('close', function() {
     console.log('¡Que tengas un gran día!');
     process.exit(0);
 });
+
+
+
+
+
+
+// function imprimirArray() {
+//     for (var i in tablero_input) {
+//         console.log("row " + i);
+//         for (var j in tablero_input[i]) {
+//             console.log(" " + tablero_input[i][j]);
+//         }
+//     }
+// }
+// imprimirArray();
