@@ -115,13 +115,13 @@ var readline = require('readline'),
     rl = readline.createInterface(process.stdin, process.stdout);
 
 
-iniciar();
+iniciar_programa();
 
 
 
 
 
-function iniciar() {
+function iniciar_programa() {
     console.log("Introduce la cantidad de casos de prueba");
 
     rl.on('line', function(res) {
@@ -271,7 +271,7 @@ function iniciar() {
         }
 
     }).on('close', function() {
-        console.log('¡Que tengas un gran día!');
+        console.log('Se ha finalizado el programa');
         process.exit(0);
     });
 
