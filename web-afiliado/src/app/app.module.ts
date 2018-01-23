@@ -22,6 +22,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { APP_ROUTING } from './app.routes';
 import { RegistroComponent } from './components/registro/registro.component';
+import { PruebaselectComponent } from './components/pruebaselect/pruebaselect.component';
 
 
 
@@ -35,7 +36,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     ConvertirArrayPipe,
     NavbarComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PruebaselectComponent
   ],
   imports: [
     BrowserModule,
